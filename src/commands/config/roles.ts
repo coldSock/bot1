@@ -1,8 +1,9 @@
+import { config } from 'dotenv';
 import { ChannelType, TextChannel, RoleSelectMenuBuilder, ActionRowBuilder } from 'discord.js';
 import type { CommandData, SlashCommandProps, CommandOptions } from 'commandkit';
 import { type APIRole } from 'discord-api-types/v10';
 import { Keys } from '../../keys.js';
-import { log } from '../../utils/log.js';
+import { log } from '../../utils/configLog.js';
 
 export const data: CommandData = {
   name: 'roles',

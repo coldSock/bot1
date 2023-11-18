@@ -1,25 +1,25 @@
 import { EmbedBuilder } from 'discord.js';
 
-export const log = (interaction: any, inter: any, client: any) =>
+export const upLog = (oldMember: any, newMember: any, oldDisplayRoles: any, newDisplayRoles: any, client: any) =>
   new EmbedBuilder()
-    .setColor([163, 177, 138])
-    .setTitle('Configuration Rules Change')
+    .setColor('#f6bd60')
+    .setTitle('Data Sufficiency Report')
     .setAuthor({
-      name: interaction.user.tag,
-      iconURL: interaction.user.displayAvatarURL({ dynamic: true }),
+      name: newMember.user.tag,
+      iconURL: newMember.user.displayAvatarURL(),
       url: 'https://discord.js.org',
     })
     .addFields(
       { name: 'Database POST request', value: '[ID: N/A](http://example.com)', inline: true },
       { name: '\u200B', value: '\u200B', inline: false },
       {
-        name: 'Invoked in Channel',
-        value: `${interaction.channel}`,
+        name: 'Old Roles',
+        value: `${oldDisplayRoles}`,
         inline: true,
       },
       {
         name: 'New Roles',
-        value: `${inter.values.join(', ')}`,
+        value: `${newDisplayRoles}`,
         inline: true,
       }
     )
@@ -29,4 +29,4 @@ export const log = (interaction: any, inter: any, client: any) =>
       iconURL: client.user.displayAvatarURL({ dynamic: true }),
     });
 
-export default log;
+export default upLog;
