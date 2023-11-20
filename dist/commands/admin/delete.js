@@ -10,7 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 import { ChannelType } from 'discord.js';
 export const data = {
     name: 'delete',
-    description: 'Delete a set amount of messages.',
+    description: 'Delete a set amount of messagesa.a',
     options: [
         {
             name: 'channel',

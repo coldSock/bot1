@@ -3,7 +3,7 @@ import type { CommandData, SlashCommandProps, CommandOptions } from 'commandkit'
 
 export const data: CommandData = {
   name: 'delete',
-  description: 'Delete a set amount of messages.',
+  description: 'Delete a set amount of messagesa.a',
   options: [
     {
       name: 'channel',

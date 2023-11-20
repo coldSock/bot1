@@ -31,11 +31,12 @@ export default function (oldMember, newMember, client, handler, user) {
             yield db.insert(schema.users).values({ dId: newMember.user.id, name: newMember.user.username, roles: newDisplayRoles });
         }
         else {
-            const updatedUserId = yield db
+            const updatedUser = yield db
                 .update(schema.users)
                 .set({ name: newMember.user.username })
-                .where(eq(schema.users.name, newMember.user.username))
+                .where(eq(schema.users.dId, newMember.user.id))
                 .returning({ updatedId: schema.users.id });
+            console.log(updatedUser);
         }
         const logChannel = yield client.channels.fetch(Keys.logChannel);
         const logInvoke = upLog(oldMember, newMember, oldDisplayRoles, newDisplayRoles, client);

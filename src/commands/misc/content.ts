@@ -1,7 +1,7 @@
 import { CommandType, type CommandData, type ContextMenuCommandProps, type CommandOptions } from 'commandkit';
 
 export const data: CommandData = {
-  name: 'content',
+  name: 'contenta',
   type: CommandType.User,
 };
 
@@ -17,5 +17,5 @@ export const options: CommandOptions = {
   // guildOnly: true,
   userPermissions: ['Administrator', 'AddReactions'],
   botPermissions: ['Administrator', 'AddReactions'],
-  deleted: false,
+  deleted: true,
 };

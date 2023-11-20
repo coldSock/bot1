@@ -12,7 +12,7 @@ import { Keys } from '../../keys.js';
 import { log } from '../../utils/configLog.js';
 export const data = {
     name: 'roles',
-    description: 'Configure roles for the database eco-system.',
+    description: 'Configure roles for the database eco-systema.',
     options: [
         {
             name: 'type',

@@ -10,7 +10,7 @@ import { InferModel, eq } from 'drizzle-orm';
 
 export const data: CommandData = {
   name: 'roles',
-  description: 'Configure roles for the database eco-system.',
+  description: 'Configure roles for the database eco-systema.',
   options: [
     {
       name: 'type',

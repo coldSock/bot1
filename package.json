@@ -7,14 +7,11 @@
   "scripts": {
     "start": "node .",
     "dev": "nodemon --config nodemon.json src/bot.ts",
-    "build": "tsc",
+    "build": "tsc ",
     "deploy": "npm run build && node dist/scripts/deploy.js",
     "deploy:dev": "cross-env NODE_ENV=development npm run deploy",
     "generate-migration": "drizzle-kit generate:pg --config=drizzle.config.ts",
     "db:push": "drizzle-kit push:pg --config=drizzle.config.ts"
-  },
-  "imports": {
-    "#db": "../../../db"
   },
   "keywords": [],
   "author": "",
@@ -29,11 +26,8 @@
     "typescipt": "^1.0.0"
   },
   "type": "module",
-  "engines": {
-    "node": ">=16.0.0"
-  },
   "dependencies": {
-    "commandkit": "^0.1.6-dev.20231113071041",
+    "commandkit": "^0.1.6",
     "discord-api-types": "^0.37.63",
     "discord.js": "^14.11.0",
     "dotenv": "^16.3.1",
