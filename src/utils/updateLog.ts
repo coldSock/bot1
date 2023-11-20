@@ -1,6 +1,6 @@
 import { EmbedBuilder } from 'discord.js';
 
-export const upLog = (oldMember: any, newMember: any, oldDisplayRoles: any, newDisplayRoles: any, client: any) =>
+export const log = (oldMember: any, newMember: any, oldDisplayRoles: any, newDisplayRoles: any, client: any) =>
   new EmbedBuilder()
     .setColor('#f6bd60')
     .setTitle('# Data Sufficiency Report')
@@ -29,4 +29,4 @@ export const upLog = (oldMember: any, newMember: any, oldDisplayRoles: any, newD
       iconURL: 'https://cdn3.emoji.gg/emojis/6218-community-server-public.png',
     });
 
-export default upLog;
+export default log;

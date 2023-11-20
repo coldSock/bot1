@@ -1,11 +1,10 @@
 import { pgTable, serial, text, varchar } from 'drizzle-orm/pg-core';
 import { drizzle } from 'drizzle-orm/node-postgres';
-import { Pool } from 'pg';
-import dotenv from 'dotenv';
+import pkg from 'pg';
+const { Pool } = pkg;
+import { Keys } from '../keys.js';
 
-import * as schema from './schema.ts';
-
-dotenv.config();
+import * as schema from './schema.js';
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,

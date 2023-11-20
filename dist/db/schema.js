@@ -1,5 +1,6 @@
 import { pgTable, serial, varchar } from 'drizzle-orm/pg-core';
-export const items = pgTable('items', {
+// schema.ts
+export const users = pgTable('users', {
     id: serial('id').primaryKey(),
     name: varchar('name', { length: 256 }),
 });

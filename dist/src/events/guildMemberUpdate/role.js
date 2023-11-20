@@ -9,8 +9,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 import { upLog } from '../../utils/updateLog.js';
 import { Keys } from '../../keys.js';
-import { db } from '../../db/index.js';
-import * as schema from '../../db/schema.js';
+import { db } from '../../../db/index.ts';
+import * as schema from '#../../../db/schema.ts';
 export default function (oldMember, newMember, client, handler, user) {
     return __awaiter(this, void 0, void 0, function* () {
         if (oldMember.roles.cache.size === newMember.roles.cache.size)
