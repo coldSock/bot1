@@ -7,10 +7,11 @@
   "scripts": {
     "start": "node .",
     "dev": "nodemon --config nodemon.json src/bot.ts",
-    "generate": "drizzle-kit generate:pg",
     "build": "tsc",
     "deploy": "npm run build && node dist/scripts/deploy.js",
-    "deploy:dev": "cross-env NODE_ENV=development npm run deploy"
+    "deploy:dev": "cross-env NODE_ENV=development npm run deploy",
+    "generate-migration": "drizzle-kit generate:pg --config=drizzle.config.ts",
+    "db:push": "drizzle-kit push:pg --config=drizzle.config.ts"
   },
   "keywords": [],
   "author": "",
@@ -35,6 +36,7 @@
     "dotenv": "^16.3.1",
     "drizzle-orm": "^0.29.0",
     "pg": "^8.11.3",
-    "postgres": "^3.4.3"
+    "postgres": "^3.4.3",
+    "typescript": "^5.2.2"
   }
 }
