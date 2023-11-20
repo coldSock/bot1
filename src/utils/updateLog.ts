@@ -3,15 +3,15 @@ import { EmbedBuilder } from 'discord.js';
 export const upLog = (oldMember: any, newMember: any, oldDisplayRoles: any, newDisplayRoles: any, client: any) =>
   new EmbedBuilder()
     .setColor('#f6bd60')
-    .setTitle('Data Sufficiency Report')
+    .setTitle('# Data Sufficiency Report')
     .setAuthor({
       name: newMember.user.tag,
-      iconURL: newMember.user.displayAvatarURL(),
+      iconURL: newMember.user.displayAvatarURL({ dynamic: true }),
       url: 'https://discord.js.org',
     })
     .addFields(
-      { name: 'Database POST request', value: '[ID: N/A](http://example.com)', inline: true },
-      { name: '\u200B', value: '\u200B', inline: false },
+      { name: 'Database POST request ', value: '[ID: N/A](http://example.com)', inline: false },
+      //       { name: '\u200B', value: '\u200B', inline: false },
       {
         name: 'Old Roles',
         value: `${oldDisplayRoles}`,
@@ -25,8 +25,8 @@ export const upLog = (oldMember: any, newMember: any, oldDisplayRoles: any, newD
     )
     .setTimestamp()
     .setFooter({
-      text: `${client.user.tag}`,
-      iconURL: client.user.displayAvatarURL({ dynamic: true }),
+      text: `${client.ws.ping >= 1 ? client.ws.ping : '(instant) 0'}ms`,
+      iconURL: 'https://cdn3.emoji.gg/emojis/6218-community-server-public.png',
     });
 
 export default upLog;
