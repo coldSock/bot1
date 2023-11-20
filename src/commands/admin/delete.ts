@@ -15,7 +15,7 @@ export const data: CommandData = {
     {
       name: 'amount',
       description: 'The amount of messages to delete',
-      type: 9,
+      type: 4,
       required: true,
     },
   ],

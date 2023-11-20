@@ -4,7 +4,7 @@ export const Keys = {
   clientToken: getEnvVar('CLIENT_TOKEN'),
   testGuild: getEnvVar('TEST_GUILD'),
   logChannel: getEnvVar('LOG_CHANNEL_ID'),
-  db: getEnvVar('DATABASE_URL'),
+  dbUrl: getEnvVar('DATABASE_URL'),
   cmdGuild: getEnvVar('COMMANDO_GUILD'),
 } as const;
 
