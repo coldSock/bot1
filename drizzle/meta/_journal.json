@@ -15,6 +15,13 @@
       "when": 1700497576322,
       "tag": "0001_parallel_sharon_ventura",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1700498158271,
+      "tag": "0002_fair_namorita",
+      "breakpoints": true
     }
   ]
 }

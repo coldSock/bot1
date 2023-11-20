@@ -1,0 +1,37 @@
+{
+  "id": "f137ab3a-227c-4822-8388-8a5e6383cf8d",
+  "prevId": "779437ce-f9d5-41b9-b2e9-8b82237e877d",
+  "version": "5",
+  "dialect": "pg",
+  "tables": {
+    "items": {
+      "name": "items",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "varchar(240)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  }
+}
