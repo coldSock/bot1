@@ -7,10 +7,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { upLog } from '../../utils/updateLog.js';
+import { log as upLog } from '../../utils/updateLog.js';
 import { Keys } from '../../keys.js';
 import { db } from '../../db/index.js';
 import * as schema from '../../db/schema.js';
+import { eq } from 'drizzle-orm';
 export default function (oldMember, newMember, client, handler, user) {
     return __awaiter(this, void 0, void 0, function* () {
         if (oldMember.roles.cache.size === newMember.roles.cache.size)
@@ -24,9 +25,17 @@ export default function (oldMember, newMember, client, handler, user) {
             .map((role) => role)
             .filter(isValid)
             .join(', ');
-        if (!user) {
-            const users = yield db.select().from(schema.users);
-            console.log(users);
+        const userQuery = yield db.select().from(schema.users).where(eq(schema.users.name, newMember.user.username));
+        console.log(userQuery);
+        if (!userQuery || !userQuery.length) {
+            yield db.insert(schema.users).values({ dId: newMember.user.id, name: newMember.user.username, roles: newDisplayRoles });
+        }
+        else {
+            const updatedUserId = yield db
+                .update(schema.users)
+                .set({ name: newMember.user.username })
+                .where(eq(schema.users.name, newMember.user.username))
+                .returning({ updatedId: schema.users.id });
         }
         const logChannel = yield client.channels.fetch(Keys.logChannel);
         const logInvoke = upLog(oldMember, newMember, oldDisplayRoles, newDisplayRoles, client);

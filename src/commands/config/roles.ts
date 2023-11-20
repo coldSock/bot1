@@ -4,6 +4,9 @@ import type { CommandData, SlashCommandProps, CommandOptions } from 'commandkit'
 import { type APIRole } from 'discord-api-types/v10';
 import { Keys } from '../../keys.js';
 import { log } from '../../utils/configLog.js';
+import { db } from '../../db/index.js';
+import * as schema from '../../db/schema.js';
+import { InferModel, eq } from 'drizzle-orm';
 
 export const data: CommandData = {
   name: 'roles',

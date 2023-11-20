@@ -83,8 +83,8 @@ export function run({ interaction, client, handler }) {
     });
 }
 export const options = {
-    devOnly: true,
-    guildOnly: true,
+    // devOnly: true,
+    // guildOnly: true,
     userPermissions: ['Administrator', 'AddReactions'],
     botPermissions: ['Administrator', 'AddReactions'],
     deleted: false,

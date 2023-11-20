@@ -29,14 +29,15 @@ export default async function (
   const userQuery = await db.select().from(schema.users).where(eq(schema.users.name, newMember.user.username));
   console.log(userQuery);
 
-  if (!userQuery) {
+  if (!userQuery || !userQuery.length) {
     await db.insert(schema.users).values({ dId: newMember.user.id, name: newMember.user.username, roles: newDisplayRoles });
   } else {
-    const updatedUserId: { updatedId: number }[] = await db
+    const updatedUser: { updatedId: number }[] = await db
       .update(schema.users)
       .set({ name: newMember.user.username })
-      .where(eq(schema.users.name, newMember.user.username))
+      .where(eq(schema.users.dId, newMember.user.id))
       .returning({ updatedId: schema.users.id });
+    console.log(updatedUser);
   }
 
   const logChannel: any = await client.channels.fetch(Keys.logChannel);

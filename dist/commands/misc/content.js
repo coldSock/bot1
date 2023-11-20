@@ -10,8 +10,8 @@ export function run({ interaction, client, handler }) {
     interaction.reply(`The message is: ${interaction.targetMessage}`);
 }
 export const options = {
-    devOnly: true,
-    guildOnly: true,
+    // devOnly: true,
+    // guildOnly: true,
     userPermissions: ['Administrator', 'AddReactions'],
     botPermissions: ['Administrator', 'AddReactions'],
     deleted: false,

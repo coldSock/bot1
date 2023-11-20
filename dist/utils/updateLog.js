@@ -1,5 +1,5 @@
 import { EmbedBuilder } from 'discord.js';
-export const upLog = (oldMember, newMember, oldDisplayRoles, newDisplayRoles, client) => new EmbedBuilder()
+export const log = (oldMember, newMember, oldDisplayRoles, newDisplayRoles, client) => new EmbedBuilder()
     .setColor('#f6bd60')
     .setTitle('# Data Sufficiency Report')
     .setAuthor({
@@ -23,4 +23,4 @@ export const upLog = (oldMember, newMember, oldDisplayRoles, newDisplayRoles, cl
     text: `${client.ws.ping >= 1 ? client.ws.ping : '(instant) 0'}ms`,
     iconURL: 'https://cdn3.emoji.gg/emojis/6218-community-server-public.png',
 });
-export default upLog;
+export default log;
