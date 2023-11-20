@@ -29,6 +29,13 @@
       "when": 1700498463038,
       "tag": "0003_square_bushwacker",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1700498654799,
+      "tag": "0004_large_nomad",
+      "breakpoints": true
     }
   ]
 }
