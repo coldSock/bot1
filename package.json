@@ -8,9 +8,9 @@
     "start": "node .",
     "dev": "nodemon --config nodemon.json src/bot.ts",
     "build": "tsc ",
-    "deploy": "npm run build && node dist/scripts/deploy.js",
+    "deploy": "npm run build && node dist/bot.js",
     "deploy:dev": "cross-env NODE_ENV=development npm run deploy",
-    "generate-migration": "drizzle-kit generate:pg --config=drizzle.config.ts",
+    "db:migrate": "drizzle-kit generate:pg --config=drizzle.config.ts",
     "db:push": "drizzle-kit push:pg --config=drizzle.config.ts"
   },
   "keywords": [],

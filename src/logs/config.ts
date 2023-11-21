@@ -1,6 +1,6 @@
 import { EmbedBuilder } from 'discord.js';
 
-export const log = (interaction: any, inter: any, client: any) =>
+export const Embed = (interaction: any, inter: any, client: any) =>
   new EmbedBuilder()
     .setColor('#f6bd60')
     .setTitle('Configuration Rules Change')
@@ -29,4 +29,4 @@ export const log = (interaction: any, inter: any, client: any) =>
       iconURL: client.user.displayAvatarURL({ dynamic: true }),
     });
 
-export default log;
+export default Embed;

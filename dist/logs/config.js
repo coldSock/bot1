@@ -1,5 +1,5 @@
 import { EmbedBuilder } from 'discord.js';
-export const log = (interaction, inter, client) => new EmbedBuilder()
+export const Embed = (interaction, inter, client) => new EmbedBuilder()
     .setColor('#f6bd60')
     .setTitle('Configuration Rules Change')
     .setAuthor({
@@ -21,4 +21,5 @@ export const log = (interaction, inter, client) => new EmbedBuilder()
     text: `${client.user.tag}`,
     iconURL: client.user.displayAvatarURL({ dynamic: true }),
 });
-export default log;
+export default Embed;
+//# sourceMappingURL=config.js.map

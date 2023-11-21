@@ -1,3 +1,4 @@
+/* base imports */
 import { ChannelType, TextChannel } from 'discord.js';
 import type { CommandData, SlashCommandProps, CommandOptions } from 'commandkit';
 
@@ -48,8 +49,8 @@ export async function run({ interaction, client, handler }: SlashCommandProps) {
 }
 
 export const options: CommandOptions = {
-  // devOnly: true,
-  // guildOnly: true,
+  devOnly: false,
+  guildOnly: false,
   userPermissions: ['Administrator', 'AddReactions'],
   botPermissions: ['Administrator', 'AddReactions'],
   deleted: false,

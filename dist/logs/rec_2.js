@@ -1,5 +1,5 @@
 import { EmbedBuilder } from 'discord.js';
-export const log = () => new EmbedBuilder()
+export const Embed = () => new EmbedBuilder()
     .setColor('#f6bd60')
     .setAuthor({
     name: 'High Rank Only',
@@ -13,4 +13,5 @@ export const log = () => new EmbedBuilder()
     text: `Commando Team`,
     iconURL: 'https://cdn3.emoji.gg/emojis/6218-community-server-public.png',
 });
-export default log;
+export default Embed;
+//# sourceMappingURL=rec_2.js.map

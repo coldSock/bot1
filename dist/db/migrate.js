@@ -10,3 +10,4 @@ migrate(db, { migrationsFolder: './migrations' })
     console.error('Migrations failed!', err);
     process.exit(1);
 });
+//# sourceMappingURL=migrate.js.map

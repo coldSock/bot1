@@ -1,6 +1,6 @@
 import { EmbedBuilder } from 'discord.js';
 
-export const log = () =>
+export const Embed = () =>
   new EmbedBuilder()
     .setColor('#f6bd60')
     .setAuthor({
@@ -18,4 +18,4 @@ export const log = () =>
       iconURL: 'https://cdn3.emoji.gg/emojis/6218-community-server-public.png',
     });
 
-export default log;
+export default Embed;

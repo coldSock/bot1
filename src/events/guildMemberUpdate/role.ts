@@ -1,10 +1,14 @@
+/* base imports */
 import type { GuildMember, Client, Role } from 'discord.js';
 import type { CommandKit } from 'commandkit';
-import { log as upLog } from '../../utils/updateLog.js';
+/* embeds */
+import { Embed as Log } from './../../logs/update.js';
+/* env variables */
 import { Keys } from '../../keys.js';
+/* db */
 import { db } from '../../db/index.js';
 import * as schema from '../../db/schema.js';
-import { InferModel, eq } from 'drizzle-orm';
+import { type InferModel, eq } from 'drizzle-orm';
 
 export default async function (
   oldMember: GuildMember,
@@ -30,17 +34,17 @@ export default async function (
   console.log(userQuery);
 
   if (!userQuery || !userQuery.length) {
-    await db.insert(schema.users).values({ dId: newMember.user.id, name: newMember.user.username, roles: newDisplayRoles });
+    await db.insert(schema.users).values({ discordId: newMember.user.id, name: newMember.user.username, roles: newDisplayRoles });
   } else {
     const updatedUser: { updatedId: number }[] = await db
       .update(schema.users)
       .set({ name: newMember.user.username })
-      .where(eq(schema.users.dId, newMember.user.id))
+      .where(eq(schema.users.discordId, newMember.user.id))
       .returning({ updatedId: schema.users.id });
     console.log(updatedUser);
   }
 
   const logChannel: any = await client.channels.fetch(Keys.logChannel);
-  const logInvoke = upLog(oldMember, newMember, oldDisplayRoles, newDisplayRoles, client);
+  const logInvoke = Log(oldMember, newMember, oldDisplayRoles, newDisplayRoles, client);
   await logChannel.send({ embeds: [logInvoke] });
 }

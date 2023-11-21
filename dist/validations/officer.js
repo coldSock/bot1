@@ -3,3 +3,4 @@ export default function ({ interaction, commandObj, handler }) {
         return true;
     }
 }
+//# sourceMappingURL=officer.js.map

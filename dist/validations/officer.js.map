@@ -1,0 +1,1 @@
+{"version":3,"file":"officer.js","sourceRoot":"","sources":["../../src/validations/officer.ts"],"names":[],"mappings":"AAEA,MAAM,CAAC,OAAO,WAAW,EAAE,WAAW,EAAE,UAAU,EAAE,OAAO,EAA2B;IACpF,IAAI,WAAW,CAAC,IAAI,CAAC,EAAE,KAAK,oBAAoB,EAAE;QAChD,OAAO,IAAI,CAAC;KACb;AACH,CAAC"}
