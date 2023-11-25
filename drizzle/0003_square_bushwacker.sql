@@ -1,1 +1,0 @@
-ALTER TABLE "items" RENAME COLUMN "name" TO "user";

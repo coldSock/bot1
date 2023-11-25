@@ -1,1 +1,0 @@
-ALTER TABLE "items" ALTER COLUMN "user" SET DATA TYPE varchar(200);
