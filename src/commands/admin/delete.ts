@@ -1,9 +1,10 @@
+/* base imports */
 import { ChannelType, TextChannel } from 'discord.js';
 import type { CommandData, SlashCommandProps, CommandOptions } from 'commandkit';
 
 export const data: CommandData = {
   name: 'delete',
-  description: 'Delete a set amount of messages.',
+  description: 'Delete a set amount of messagesa.a',
   options: [
     {
       name: 'channel',
@@ -48,8 +49,11 @@ export async function run({ interaction, client, handler }: SlashCommandProps) {
 }
 
 export const options: CommandOptions = {
-  devOnly: true,
-  guildOnly: true,
+  aliases: ['del'],
+  botcmds: false,
+  commando: false,
+  devOnly: false,
+  guildOnly: false,
   userPermissions: ['Administrator', 'AddReactions'],
   botPermissions: ['Administrator', 'AddReactions'],
   deleted: false,

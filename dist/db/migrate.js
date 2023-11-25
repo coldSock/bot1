@@ -1,5 +1,5 @@
 import { migrate } from 'drizzle-orm/node-postgres/migrator';
-import { db } from './db.js';
+import { db } from './index.js';
 // this will automatically run needed migrations on the database
 migrate(db, { migrationsFolder: './migrations' })
     .then(() => {
@@ -10,3 +10,4 @@ migrate(db, { migrationsFolder: './migrations' })
     console.error('Migrations failed!', err);
     process.exit(1);
 });
+//# sourceMappingURL=migrate.js.map

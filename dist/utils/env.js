@@ -6,10 +6,10 @@ const EnvFilePath = resolve(process.cwd(), EnvFile);
 config({ path: EnvFilePath });
 // Attempts to get an environment variable, and throws an error if it is not set.
 export function getEnvVar(name, fallback) {
-    var _a;
-    const value = (_a = process.env[name]) !== null && _a !== void 0 ? _a : fallback;
+    const value = process.env[name] ?? fallback;
     if (value === undefined) {
         throw new Error(`Environment variable ${name} is not set.`);
     }
     return value;
 }
+//# sourceMappingURL=env.js.map

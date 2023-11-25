@@ -1,13 +1,18 @@
-import { config } from 'dotenv';
+/* base imports */
 import { ChannelType, TextChannel, RoleSelectMenuBuilder, ActionRowBuilder } from 'discord.js';
 import type { CommandData, SlashCommandProps, CommandOptions } from 'commandkit';
-import { type APIRole } from 'discord-api-types/v10';
+/* env variables */
 import { Keys } from '../../keys.js';
-import { log } from '../../utils/configLog.js';
+/* embeds */
+import { Embed as Log } from '../../logs/config.js';
+/* db */
+import { db } from '../../db/index.js';
+import * as schema from '../../db/schema.js';
+import { type InferModel, eq } from 'drizzle-orm';
 
 export const data: CommandData = {
   name: 'roles',
-  description: 'Configure roles for the database eco-system.',
+  description: 'Configure roles for the database eco-systema.',
   options: [
     {
       name: 'type',
@@ -70,7 +75,7 @@ export async function run({ interaction, client, handler }: SlashCommandProps) {
       return;
     }
     const logChannel: any = await client.channels.fetch(Keys.logChannel);
-    const logInvoke = log(interaction, inter, client);
+    const logInvoke = Log(interaction, inter, client);
     await logChannel.send({ embeds: [logInvoke] });
     interaction.deleteReply();
   });
@@ -85,8 +90,8 @@ export async function run({ interaction, client, handler }: SlashCommandProps) {
 }
 
 export const options: CommandOptions = {
-  devOnly: true,
-  guildOnly: true,
+  devOnly: false,
+  guildOnly: false,
   userPermissions: ['Administrator', 'AddReactions'],
   botPermissions: ['Administrator', 'AddReactions'],
   deleted: false,
