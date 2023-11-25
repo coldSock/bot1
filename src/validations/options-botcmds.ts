@@ -1,6 +1,7 @@
 import type { ValidationFunctionProps } from 'commandkit';
 
 export default function ({ interaction, commandObj, handler }: ValidationFunctionProps) {
+  if (commandObj.options?.botcmds === false) return;
   if (interaction.channel!.id !== '1165734848778993704') {
     interaction.reply({
       content: 'This command can only be run in <#1165734848778993704>',

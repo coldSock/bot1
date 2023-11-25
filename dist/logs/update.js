@@ -1,21 +1,21 @@
 import { EmbedBuilder } from 'discord.js';
-export const Embed = (oldMember, newMember, oldDisplayRoles, newDisplayRoles, client) => new EmbedBuilder()
+export const Embed = (oldMember, newMember, oldRole, newRole, client) => new EmbedBuilder()
     .setColor('#f6bd60')
-    .setTitle('# Data Sufficiency Report')
+    .setTitle(newMember.user.tag)
+    .setURL('https://discord.js.org')
     .setAuthor({
-    name: newMember.user.tag,
+    name: newMember.user.displayName,
     iconURL: newMember.user.displayAvatarURL({ dynamic: true }),
     url: 'https://discord.js.org',
 })
-    .addFields({ name: 'Database POST request ', value: '[ID: N/A](http://example.com)', inline: false }, 
-//       { name: '\u200B', value: '\u200B', inline: false },
-{
-    name: 'Old Roles',
-    value: `${oldDisplayRoles}`,
+    .setDescription(`### <:folder_open:1177272545976799312> __Data Report__\n\n`)
+    .addFields({
+    name: '**Old Role**',
+    value: `<:Asset5:1177282027066757170>  ${oldRole}`,
     inline: true,
 }, {
-    name: 'New Roles',
-    value: `${newDisplayRoles}`,
+    name: '**New Role**',
+    value: `<:Asset5:1177282027066757170>  ${newRole}`,
     inline: true,
 })
     .setTimestamp()

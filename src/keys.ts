@@ -6,6 +6,7 @@ export const Keys = {
   logChannel: getEnvVar('LOG_CHANNEL_ID'),
   dbUrl: getEnvVar('DATABASE_URL'),
   cmdGuild: getEnvVar('COMMANDO_GUILD'),
+  cookie: getEnvVar('COOKIE'),
 } as const;
 
 export default Keys;

@@ -43,6 +43,9 @@ export async function run({ interaction, client, handler }) {
     }
 }
 export const options = {
+    aliases: ['del'],
+    botcmds: false,
+    commando: false,
     devOnly: false,
     guildOnly: false,
     userPermissions: ['Administrator', 'AddReactions'],

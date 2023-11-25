@@ -11,7 +11,8 @@
     "deploy": "npm run build && node dist/bot.js",
     "deploy:dev": "cross-env NODE_ENV=development npm run deploy",
     "db:migrate": "drizzle-kit generate:pg --config=drizzle.config.ts",
-    "db:push": "drizzle-kit push:pg --config=drizzle.config.ts"
+    "db:push": "drizzle-kit push:pg --config=drizzle.config.ts",
+    "db:studio": "drizzle-kit studio --config=drizzle.config.ts"
   },
   "keywords": [],
   "author": "",
@@ -32,6 +33,7 @@
     "discord.js": "^14.11.0",
     "dotenv": "^16.3.1",
     "drizzle-orm": "^0.29.0",
+    "noblox.js": "^4.15.0",
     "pg": "^8.11.3",
     "postgres": "^3.4.3",
     "typescript": "^5.2.2"

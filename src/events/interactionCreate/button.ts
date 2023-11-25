@@ -2,7 +2,7 @@
 import type { Interaction, Client, Role, User } from 'discord.js';
 import type { CommandKit } from 'commandkit';
 import { setTimeout } from 'node:timers/promises';
-import { ActionRowBuilder, UserSelectMenuBuilder, ComponentType, StringSelectMenuBuilder, GuildMember } from 'discord.js';
+import { ActionRowBuilder, UserSelectMenuBuilder, ComponentType, StringSelectMenuBuilder, GuildMember, Collector } from 'discord.js';
 /* db */
 import { db } from '../../db/index.js';
 import * as schema from '../../db/schema.js';
@@ -28,7 +28,7 @@ const recs = [
  * @param {import('discord.js').ChatInputCommandInteraction} param0.interaction
  */
 export default async function (interaction: Interaction, client: Client<true>, handler: CommandKit) {
-  if (!interaction.isButton() || (await interaction.channelId) !== '1174235972515414037') return;
+  if (!interaction.isButton() || interaction.channelId !== '1174235972515414037') return;
   if (interaction.customId === 'button') {
     const userSelect = new UserSelectMenuBuilder().setCustomId('user').setPlaceholder('Select a user...').setMinValues(1).setMaxValues(10);
     const stringSelect = new StringSelectMenuBuilder()
@@ -38,6 +38,8 @@ export default async function (interaction: Interaction, client: Client<true>, h
 
     const userSelectRow = new ActionRowBuilder<UserSelectMenuBuilder>().addComponents(userSelect);
     const stringSelectRow = new ActionRowBuilder<StringSelectMenuBuilder>().addComponents(stringSelect);
+
+    console.log(typeof userSelect);
 
     await interaction.reply({ components: [userSelectRow], ephemeral: true });
 
@@ -67,12 +69,12 @@ export default async function (interaction: Interaction, client: Client<true>, h
       await inter.deleteReply();
     });
 
-    stringCollector.on('collect', async (inter) => {
+    stringCollector.on('collect', async (inter: any) => {
       if (!inter.values.length) {
         inter.reply('You must select at least one user!');
         return;
       }
-      const reasons = inter.values.map((value) => `${value}`).join(', ');
+      const reasons = inter.values.map((value: any) => `${value}`).join(', ');
 
       await inter.reply({ content: `You selected: ${reasons}`, ephemeral: true });
       await setTimeout(1500);

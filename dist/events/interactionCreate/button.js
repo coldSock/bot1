@@ -1,5 +1,5 @@
 import { setTimeout } from 'node:timers/promises';
-import { ActionRowBuilder, UserSelectMenuBuilder, ComponentType, StringSelectMenuBuilder, GuildMember } from 'discord.js';
+import { ActionRowBuilder, UserSelectMenuBuilder, ComponentType, StringSelectMenuBuilder, GuildMember, Collector } from 'discord.js';
 /* db */
 import { db } from '../../db/index.js';
 import * as schema from '../../db/schema.js';
@@ -23,7 +23,7 @@ const recs = [
  * @param {import('discord.js').ChatInputCommandInteraction} param0.interaction
  */
 export default async function (interaction, client, handler) {
-    if (!interaction.isButton() || (await interaction.channelId) !== '1174235972515414037')
+    if (!interaction.isButton() || interaction.channelId !== '1174235972515414037')
         return;
     if (interaction.customId === 'button') {
         const userSelect = new UserSelectMenuBuilder().setCustomId('user').setPlaceholder('Select a user...').setMinValues(1).setMaxValues(10);
@@ -33,6 +33,7 @@ export default async function (interaction, client, handler) {
             .addOptions(recs.map((r) => ({ label: r.label, value: r.value, description: r.description, emoji: r.emoji })));
         const userSelectRow = new ActionRowBuilder().addComponents(userSelect);
         const stringSelectRow = new ActionRowBuilder().addComponents(stringSelect);
+        console.log(typeof userSelect);
         await interaction.reply({ components: [userSelectRow], ephemeral: true });
         const userCollector = interaction.channel.createMessageComponentCollector({
             componentType: ComponentType.UserSelect,

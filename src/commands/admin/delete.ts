@@ -49,6 +49,9 @@ export async function run({ interaction, client, handler }: SlashCommandProps) {
 }
 
 export const options: CommandOptions = {
+  aliases: ['del'],
+  botcmds: false,
+  commando: false,
   devOnly: false,
   guildOnly: false,
   userPermissions: ['Administrator', 'AddReactions'],
